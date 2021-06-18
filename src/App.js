@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "@fontsource/montserrat";
 import { Palabras } from "./components/Palabras";
 import { PalabraAnyadida } from "./components/PalabraAnyadida";
 import { palabras } from "./data/palabras";

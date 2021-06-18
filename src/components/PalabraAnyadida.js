@@ -15,6 +15,7 @@ export const PalabraAnyadida = (props) => {
 PalabraAnyadida.propTypes = {
   palabra: PropTypes.shape({
     palabra: PropTypes.string.isRequired,
+    lenguaje: PropTypes.bool.isRequired,
   }),
   borrarPalabras: PropTypes.func.isRequired,
 };
