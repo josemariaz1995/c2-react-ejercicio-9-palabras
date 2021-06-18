@@ -11,17 +11,19 @@ export const DatosRelevantes = (props) => {
         ? 0
         : numeroCaracteres / palabrasAnyadidas.length) * 100
     ) / 100;
-  const palabrasRepetidas = palabrasAnyadidas.map((palabra) => {
-    if (palabra.lenguaje) {
-      return palabra.palabra;
-    }
-  });
-  const palabrasSinRepetir = palabrasRepetidas.filter((palabra, i, array) => {
-    if (array.indexOf(palabra) === i) {
-      return palabra;
-    }
-  });
-  console.log(palabrasSinRepetir);
+  const palabrasRepetidas = palabrasAnyadidas
+    .map((palabra) => {
+      if (palabra.lenguaje) {
+        return palabra.palabra;
+      }
+      return "";
+    })
+    .filter((palabra, i, array) => {
+      if (array.indexOf(palabra) === i) {
+        return palabra;
+      }
+      return "";
+    });
   return (
     <section className="info">
       <ul>
@@ -35,10 +37,10 @@ export const DatosRelevantes = (props) => {
           Longitud media <span>{longitudMedia}</span>
         </li>
         <li>
-          Contiene {palabrasSinRepetir.length} lenguaje/s de programación
+          Contiene {palabrasRepetidas.length} lenguaje/s de programación
           <ul>
-            {palabrasSinRepetir.map((palabra) => (
-              <li>{palabra}</li>
+            {palabrasRepetidas.map((palabra) => (
+              <li key={palabra}>{palabra}</li>
             ))}
           </ul>
         </li>
