@@ -10,6 +10,11 @@ function App() {
     setPalabrasAnyadidas([...palabrasAnyadidas, { ...palabra, id: idNuevo }]);
     setIdNuevo(idNuevo + 1);
   };
+  const borrarPalabras = (palabras) => {
+    setPalabrasAnyadidas(
+      palabrasAnyadidas.filter((palabra) => palabras.id !== palabra.id)
+    );
+  };
   return (
     <>
       <section className="palabras">
@@ -27,7 +32,11 @@ function App() {
         <ul className="resultado">
           {!!palabrasAnyadidas &&
             palabrasAnyadidas.map((palabra) => (
-              <PalabraAnyadida key={palabra.id} palabra={palabra} />
+              <PalabraAnyadida
+                key={palabra.id}
+                palabra={palabra}
+                borrarPalabras={borrarPalabras}
+              />
             ))}
         </ul>
       </section>

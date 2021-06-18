@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 /* eslint-disable react/react-in-jsx-scope */
 export const Palabras = (props) => {
-  const { palabra, anyadirPalabra } = props;
+  const { palabra, anyadirPalabra, setIdNuevo } = props;
   // eslint-disable-next-line no-extra-boolean-cast
   return (
     <li
@@ -12,10 +12,11 @@ export const Palabras = (props) => {
     </li>
   );
 };
+
 Palabras.propTypes = {
   palabra: PropTypes.shape({
     palabra: PropTypes.string.isRequired,
     lenguaje: PropTypes.bool.isRequired,
     id: PropTypes.number.isRequired,
-  }),
+  }).isRequired,
 };
