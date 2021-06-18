@@ -4,7 +4,7 @@ export const AnyadirPalabra = (props) => {
   const { anyadirAlCuadro } = props;
   const [nuevaPalabra, setNuevaPalabra] = useState("");
   const [veces, setVeces] = useState("");
-  const [lenguaje, setLenguaje] = useState();
+  const [lenguaje, setLenguaje] = useState(false);
   const [datosRellenados, setDatosRellenados] = useState(true);
   useEffect(() => {
     setDatosRellenados(true);

@@ -12,7 +12,7 @@ function App() {
 
   const ultimaId = palabrasCuadro
     .map((palabra) => palabra.id)
-    .reduce((contador, id) => (id.id > contador ? contador + id : contador), 0);
+    .reduce((contador, id) => (id > contador ? contador + id : contador), 0);
 
   const anyadirPalabra = (palabra) => {
     setPalabrasAnyadidas([...palabrasAnyadidas, { ...palabra, id: idNuevo }]);
@@ -27,10 +27,14 @@ function App() {
   const anyadirAlCuadro = (palabra, veces, lenguaje) => {
     setPalabra([
       ...palabrasCuadro,
-      { id: ultimaId, palabra: palabra, veces: veces, lenguaje: lenguaje },
+      {
+        id: ultimaId,
+        palabra: palabra,
+        veces: veces,
+        lenguaje: lenguaje,
+      },
     ]);
   };
-  console.log(ultimaId);
   return (
     <>
       <section className="palabras">
