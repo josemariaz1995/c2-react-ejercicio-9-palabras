@@ -12,7 +12,7 @@ function App() {
 
   const ultimaId = palabrasCuadro
     .map((palabra) => palabra.id)
-    .reduce((contador, id) => (id > contador ? contador + id : contador), 0);
+    .reduce((contador, id) => (id > contador ? id + 1 : contador + 1), 0);
 
   const anyadirPalabra = (palabra) => {
     setPalabrasAnyadidas([...palabrasAnyadidas, { ...palabra, id: idNuevo }]);
