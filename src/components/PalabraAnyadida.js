@@ -4,6 +4,7 @@ export const PalabraAnyadida = (props) => {
   const { palabra, borrarPalabras } = props;
   return (
     <li
+      className="nueva-palabra"
       data-lenguaje={palabra.lenguaje ? "si" : "no"}
       onClick={() => borrarPalabras(palabra)}
     >

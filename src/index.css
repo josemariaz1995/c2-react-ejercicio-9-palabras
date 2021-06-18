@@ -102,3 +102,8 @@ button {
 button:disabled {
   opacity: 0.2;
 }
+.nueva-palabra {
+  background-color: inherit !important;
+  color: white !important;
+  font-weight: 700;
+}
