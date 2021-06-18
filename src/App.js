@@ -9,15 +9,28 @@ function App() {
   const [palabrasCuadro, setPalabra] = useState(palabras);
   const [palabrasAnyadidas, setPalabrasAnyadidas] = useState([]);
   const [idNuevo, setIdNuevo] = useState(0);
+
+  const ultimaId = palabrasCuadro
+    .map((palabra) => palabra.id)
+    .reduce((contador, id) => (id.id > contador ? contador + id : contador), 0);
+
   const anyadirPalabra = (palabra) => {
     setPalabrasAnyadidas([...palabrasAnyadidas, { ...palabra, id: idNuevo }]);
     setIdNuevo(idNuevo + 1);
   };
+
   const borrarPalabras = (palabras) => {
     setPalabrasAnyadidas(
       palabrasAnyadidas.filter((palabra) => palabras.id !== palabra.id)
     );
   };
+  const anyadirAlCuadro = (palabra, veces, lenguaje) => {
+    setPalabra([
+      ...palabrasCuadro,
+      { id: ultimaId, palabra: palabra, veces: veces, lenguaje: lenguaje },
+    ]);
+  };
+  console.log(ultimaId);
   return (
     <>
       <section className="palabras">
@@ -44,9 +57,7 @@ function App() {
         </ul>
       </section>
       <section className="crear-palabras">
-        <form className="form-palabras">
-          <AnyadirPalabra />
-        </form>
+        <AnyadirPalabra anyadirAlCuadro={anyadirAlCuadro} />
       </section>
       <DatosRelevantes palabrasAnyadidas={palabrasAnyadidas} />
     </>

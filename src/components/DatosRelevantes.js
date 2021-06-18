@@ -1,21 +1,16 @@
-import { useEffect, useState } from "react";
-
 export const DatosRelevantes = (props) => {
   const { palabrasAnyadidas } = props;
 
-  const [numeroCaracteres, setNumeroCaracteres] = useState(0);
-  const [longitudMedia, setLongitudMedia] = useState(0);
-  useEffect(() => {
-    setNumeroCaracteres(
-      palabrasAnyadidas.reduce(
-        (contador, palabra) => palabra.palabra.length + contador,
-        0
-      )
-    );
-    setLongitudMedia(
-      Math.round((numeroCaracteres / palabrasAnyadidas.length) * 100) / 100
-    );
-  }, [numeroCaracteres, palabrasAnyadidas]);
+  const numeroCaracteres = palabrasAnyadidas.reduce(
+    (contador, palabra) => palabra.palabra.length + contador,
+    0
+  );
+  const longitudMedia =
+    Math.round(
+      (numeroCaracteres === 0 && palabrasAnyadidas.length === 0
+        ? 0
+        : numeroCaracteres / palabrasAnyadidas.length) * 100
+    ) / 100;
 
   return (
     <section className="info">
@@ -33,7 +28,10 @@ export const DatosRelevantes = (props) => {
           Contiene 2 lenguaje/s de programación
           <ul>
             {palabrasAnyadidas.map(
-              (palabra) => !!palabra.lenguaje && <li>{palabra.palabra}</li>
+              (palabra) =>
+                !!palabra.lenguaje && (
+                  <li key={palabra.id}>{palabra.palabra}</li>
+                )
             )}
           </ul>
         </li>
