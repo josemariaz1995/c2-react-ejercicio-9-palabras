@@ -1,9 +1,9 @@
 {
-  "name": "base-react",
+  "name": "c2-ejercicio-9-palabras",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.13.0",
+    "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "react": "^17.0.2",
@@ -21,25 +21,7 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ],
-    "rules": {
-      "no-shadow": "off",
-      "no-console": "off",
-      "arrow-parens": "off",
-      "no-unused-vars": "off",
-      "no-extra-boolean-cast": "off",
-      "no-else-return": "off",
-      "no-plusplus": "off",
-      "no-use-before-define": "off",
-      "no-restricted-syntax": "off",
-      "no-underscore-dangle": "off",
-      "func-names": "off",
-      "consistent-return": "off",
-      "space-before-function-paren": "off",
-      "no-param-reassign": "off",
-      "no-restricted-globals": "off",
-      "guard-for-in": "off"
-    }
+    ]
   },
   "browserslist": {
     "production": [
